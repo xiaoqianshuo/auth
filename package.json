@@ -12,12 +12,19 @@
 		"publish": true
 	},
 	"dependencies": {
+		"@better-auth/prisma-adapter": "^1.6.9",
 		"@opennextjs/cloudflare": "1.19.4",
+		"@prisma/adapter-pg": "^7.8.0",
+		"@prisma/client": "^7.8.0",
+		"better-auth": "^1.6.9",
+		"dotenv": "^17.4.2",
 		"next": "16.2.4",
+		"pg": "^8.20.0",
 		"react": "19.2.5",
 		"react-dom": "19.2.5"
 	},
 	"devDependencies": {
+		"@better-auth/cli": "^1.4.21",
 		"@eslint/eslintrc": "^3.3.5",
 		"@tailwindcss/postcss": "4.2.4",
 		"@types/node": "25.6.0",
@@ -25,6 +32,7 @@
 		"@types/react-dom": "19.2.3",
 		"eslint": "9.39.4",
 		"eslint-config-next": "16.2.4",
+		"prisma": "^7.8.0",
 		"tailwindcss": "4.2.4",
 		"typescript": "6.0.3",
 		"wrangler": "4.84.1"
@@ -36,8 +44,14 @@
 		"check": "npm run build && tsc",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"dev": "next dev",
-		"lint": "next lint",
+		"db:generate": "prisma generate",
+		"db:migrate": "prisma migrate dev",
+		"db:push": "prisma db push",
+		"db:studio": "prisma studio",
+		"lint": "eslint .",
+		"postinstall": "prisma generate",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"start": "next start"
+		"start": "next start",
+		"auth:secret": "better-auth secret"
 	}
 }
