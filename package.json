@@ -37,6 +37,11 @@
 		"typescript": "6.0.3",
 		"wrangler": "4.84.1"
 	},
+	"pnpm": {
+		"patchedDependencies": {
+			"pg@8.20.0": "patches/pg@8.20.0.patch"
+		}
+	},
 	"private": true,
 	"scripts": {
 		"build": "next build",
